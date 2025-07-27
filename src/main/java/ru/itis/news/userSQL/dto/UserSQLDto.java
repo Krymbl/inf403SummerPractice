@@ -1,4 +1,4 @@
-package ru.itis.shop.userSQL.dto;
+package ru.itis.news.userSQL.dto;
 
 public class UserSQLDto {
 

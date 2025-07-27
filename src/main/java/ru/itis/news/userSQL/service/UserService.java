@@ -1,7 +1,10 @@
-package ru.itis.shop.userSQL.service;
+package ru.itis.news.userSQL.service;
 
-import ru.itis.shop.userSQL.entity.UserSQL;
-import ru.itis.shop.userSQL.repositories.UserRepository;
+import ru.itis.news.userSQL.dto.UserSQLDto;
+import ru.itis.news.userSQL.entity.UserSQL;
+import ru.itis.news.userSQL.repositories.UserRepository;
+
+import java.util.List;
 
 public class UserService {
 
@@ -21,16 +24,16 @@ public class UserService {
         userRepository.save(userSQL);
     }
 
-//    public List<UserSQLDto> getUsers() {
-//
-//        return userRepository.findAll().stream()
-//                .map(user -> new UserSQLDto(, user.getUuid(), user.getUsername()))
-//                .toList();
-//
-//    }
+    public List<UserSQLDto> getUsers() {
 
-    public void updatePassword(String uuid, String newPassword) {
-        UserSQL userSQL = userRepository.findById(uuid).orElseThrow(
+        return userRepository.findAll().stream()
+                .map(user -> new UserSQLDto(user.getId(), user.getUsername()))
+                .toList();
+
+    }
+
+    public void updatePassword(Integer id, String newPassword) {
+        UserSQL userSQL = userRepository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("User not found!"));
 
         validatePassword(newPassword);

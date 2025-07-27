@@ -1,17 +1,17 @@
-package ru.itis.shop.userSQL.repositories;
+package ru.itis.news.userSQL.repositories;
 
-import ru.itis.shop.userSQL.entity.UserSQL;
+import ru.itis.news.userSQL.entity.UserSQL;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface UserRepository {
-
-    void save(UserSQL userSQL);
+    void save(UserSQL usersSQL);
 
     List<UserSQL> findAll();
 
     void update(UserSQL userSQL);
 
-    Optional<UserSQL> findById(String uuid);
+    Optional<UserSQL> findById(Integer id);
+
 }

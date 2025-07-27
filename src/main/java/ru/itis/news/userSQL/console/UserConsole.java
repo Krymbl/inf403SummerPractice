@@ -1,7 +1,7 @@
-package ru.itis.shop.userSQL.console;
+package ru.itis.news.userSQL.console;
 
-import ru.itis.shop.userSQL.dto.UserSQLDto;
-import ru.itis.shop.userSQL.service.UserService;
+import ru.itis.news.userSQL.dto.UserSQLDto;
+import ru.itis.news.userSQL.service.UserService;
 
 import java.util.List;
 import java.util.Scanner;
@@ -36,9 +36,9 @@ public class UserConsole {
         }
     }
 
-    public void updatePasswword(String uuid, String newPassword) {
+    public void updatePasswword(Integer id, String newPassword) {
         try {
-            userService.updatePassword(uuid, newPassword);
+            userService.updatePassword(id, newPassword);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

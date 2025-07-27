@@ -1,4 +1,4 @@
-package ru.itis.shop.userSQL.entity;
+package ru.itis.news.userSQL.entity;
 
 public class UserSQL {
     private Integer id;
@@ -32,8 +32,12 @@ public class UserSQL {
         return password;
     }
 
-    public Integer geId() {
+    public Integer getId() {
         return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public void setPassword(String password) {
@@ -44,8 +48,16 @@ public class UserSQL {
         this.email = email;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public Integer getAge() {
+        return age;
     }
 
     @Override
