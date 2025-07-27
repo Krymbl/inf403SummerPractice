@@ -1,0 +1,73 @@
+package ru.itis.news.util.jdbc;
+
+import javax.sql.DataSource;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.SQLFeatureNotSupportedException;
+import java.util.logging.Logger;
+
+public class SimpleDataSource implements DataSource {
+
+    private final String url;
+    private final String username;
+    private final String password;
+
+    private Connection connection = null;
+
+    public SimpleDataSource(String url, String username, String password) {
+        this.url = url;
+        this.username = username;
+        this.password = password;
+    }
+
+    @Override
+    public Connection getConnection() throws SQLException {
+        if (connection == null && !connection.isClosed()) {
+            return connection;
+        }
+        connection = DriverManager.getConnection(url, username, password);
+        return connection;
+    }
+
+    @Override
+    public Connection getConnection(String username, String password) throws SQLException {
+        throw new RuntimeException("Not Implemented");
+    }
+
+    @Override
+    public PrintWriter getLogWriter() throws SQLException {
+       throw new RuntimeException("Not Implemented");
+    }
+
+    @Override
+    public void setLogWriter(PrintWriter out) throws SQLException {
+        throw new RuntimeException("Not Implemented");
+    }
+
+    @Override
+    public void setLoginTimeout(int seconds) throws SQLException {
+
+    }
+
+    @Override
+    public int getLoginTimeout() throws SQLException {
+        throw new RuntimeException("Not Implemented");
+    }
+
+    @Override
+    public Logger getParentLogger() throws SQLFeatureNotSupportedException {
+        throw new RuntimeException("Not Implemented");
+    }
+
+    @Override
+    public <T> T unwrap(Class<T> iface) throws SQLException {
+        throw new RuntimeException("Not Implemented");
+    }
+
+    @Override
+    public boolean isWrapperFor(Class<?> iface) throws SQLException {
+        throw new RuntimeException("Not Implemented");
+    }
+}

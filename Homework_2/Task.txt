@@ -1,0 +1,24 @@
+# Домашнее задание Homework_2 (создать отдельный проект)
+
+* Скачать драйвер
+* Подключить драйвер
+
+* Реализовать один класс `UserRepositoryJdbcImpl`
+
+```
+class UserRepositoryJdbcImpl {
+
+  private Connection connection;
+
+  public UserRepositoryJdbcImpl(Connection connection) {
+    this.connection = connection;
+  }
+
+  public List<User> findAll() {
+    // ...
+  }
+
+}
+```
+
+* В Main сделать подключение и проверить работу репозитория
